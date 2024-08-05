@@ -1,12 +1,9 @@
 #pragma once
-#include <iostream>
-#include <iomanip>
 #include <string>
 #include "DegreeProgram.h"
 
-using std::string;
-using std::cout;
 
+using std::string;
 class Student
 {
 public:

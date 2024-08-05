@@ -1,7 +1,4 @@
 #include "Roster.h"
-#include "Student.h"
-#include "Student.cpp"
-#include "DegreeProgram.h"
 #include<string>
 #include <sstream>
 #include <iostream>
@@ -121,33 +118,35 @@ void Roster::printAverageDaysInCourse(string studentId) {
 void Roster::remove(string studentId)
 {
 	bool success = false;
-	for (int i = 0; i <= lastIndex; i++) {
-		if(numOfStudentsArray[i]->getStudentId() == studentId) {
-
-			success = true;
-			if(i < numOfStudents - 1)
-			{
-				Student* temp = numOfStudentsArray[i];
-				numOfStudentsArray[i] = numOfStudentsArray[numOfStudents -1];
-				numOfStudentsArray[numOfStudents - 1] = temp;
-			}
-			lastIndex--;
-		}
+    for (int i = 0; i <= lastIndex; i++) {
+        if(numOfStudentsArray[i]->getStudentId() == studentId) {
+            success = true;
+            if(i < lastIndex)
+            {
+                Student* temp = numOfStudentsArray[i];
+                numOfStudentsArray[i] = numOfStudentsArray[numOfStudents -1];
+                numOfStudentsArray[numOfStudents - 1] = temp;
+            }
+            lastIndex--;
+            break; //leave loop after finding student
+        }
+    }
 			if (success) {
-				cout << studentId << "removed from the Roster" << std::endl;
-				this->printAll(); // shows the new Roster with removed student
-			}
-			else
-				cout << studentId << "not found" << std::endl;
+				cout << studentId << " removed from the Roster" << std::endl;
+            } else
+            {
+				cout << studentId << " not found" << std::endl;
 		}
 	}
 
+//destructor
 Roster::~Roster() {
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i <= lastIndex; i++) {
             delete numOfStudentsArray[i];
-            numOfStudentsArray[i] = NULL;
+            numOfStudentsArray[i] = nullptr;
         }
     }
+
 
 
 

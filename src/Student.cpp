@@ -1,5 +1,7 @@
 #include "Student.h"
 #include "DegreeProgram.h"
+#include <iostream>
+
 
 
 Student::Student()
@@ -61,14 +63,14 @@ void Student::setDaysInCourse(const int daysInCourse[]){
 
 void Student::print()
 {
-	cout << this->getStudentId() << "\t";
-	cout << this->getFirstName() << "\t";
-	cout << this->getLastName() << "\t";
-	cout << this->getEmailAddress() << "\t";
-	cout << degreeTypeStrings[this->getDegree()] << "\t";
-	cout << this->getDaysInCourse()[0] << ",";
-	cout << this->getDaysInCourse()[1] << ",";
-    cout << this->getDaysInCourse()[2] << std::endl;
+	std::cout << this->getStudentId() << "\t";
+	std::cout << this->getFirstName() << "\t";
+	std::cout << this->getLastName() << "\t";
+	std::cout << this->getEmailAddress() << "\t";
+	std::cout << degreeTypeStrings[this->getDegree()] << "\t";
+	std::cout << this->getDaysInCourse()[0] << ",";
+	std::cout << this->getDaysInCourse()[1] << ",";
+    std::cout << this->getDaysInCourse()[2] << std::endl;
 }
 
 

@@ -1,4 +1,6 @@
 #pragma once
+#ifndef ROSTER_H
+#define ROSTER_H
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -26,7 +28,6 @@ public:
 			int days3,
 			DegreeProgram degree);
 	void parse(string row);
-
 	void printAll();
 	void printAverageDaysInCourse(string studentId);
 	void printInvalidEmails();
@@ -34,3 +35,5 @@ public:
 	void printByDegreeProgram(DegreeProgram degree);
 ~Roster();
 };
+
+#endif // ROSTER_H

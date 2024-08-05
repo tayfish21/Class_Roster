@@ -35,26 +35,39 @@ int main() {
 	for (const auto& data: studentData) {
 		classRoster.parse(data);
 	};
-	cout << "Showing student data: ";
+	
+    cout << "Showing student data: ";
 	classRoster.printAll();
 	cout << endl;
+    std::cout << "------------------------------" << std:: endl;
 
-	for (int i = 0; i < 3; i++) {
-	cout << "Showing by Degree Program: " << degreeTypeStrings[i] << std::endl;
-	classRoster.printByDegreeProgram((DegreeProgram)i);
-	}
+    cout << "Showing invalid email addresses: " << endl;
+    classRoster.printInvalidEmails();
+    cout << endl;
+    std::cout << "------------------------------" << std:: endl;
 
-	cout << "Showing invalid email addresses: ";
-	cout << classRoster.printInvalidEmails();
-	cout << endl;
+    cout << "Showing average days in course for each student: " << endl;
+    classRoster.printAverageDaysInCourse("");
+    cout << endl;
+    std::cout << "------------------------------" << std:: endl;
 
-	cout << "Showing average days in course: ";
-	cout << classRoster.printAverageDaysInCourse("A2");
-	cout << endl;
+    cout<< "Print students in Software: "<< endl;
+    classRoster.printByDegreeProgram(SOFTWARE);
+    cout << endl;
+    std::cout << "------------------------------" << std:: endl;
+
+    cout<< "Remove student with ID A3: "<< endl;
+    classRoster.remove("A3");
+    std::cout<<"------"<< std:: endl;
+    classRoster.printAll();
+    std::cout<<"------"<< std:: endl;
+    classRoster.remove("A3");
+    cout << endl;
 
 
-
-
+    
+    
 	return 0;
 
 }
+
