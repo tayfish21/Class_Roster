@@ -17,6 +17,20 @@
 using namespace std;
 
 int main() {
+    
+    //printing out C867 Info
+    std::string courseName = "Course Name: SCRIPTING AND PROGRAMMING - APPLICATIONS — C867";
+    std::string programmingLanguage = "Language used: C++";
+    std::string studentID = "Student ID: 011028610";
+    std::string studenName = "Student Name: Taylor Fisher";
+    
+    std::cout << courseName << "|";
+    std::cout << programmingLanguage << "|";
+    std::cout << studentID << "|";
+    std::cout << studenName << std::endl;
+    std::cout << "------------------------------" << std:: endl;
+
+
 
 	//Create an instance of the Roster class called classRoster
 	Roster classRoster;
