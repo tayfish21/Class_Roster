@@ -59,8 +59,13 @@ int main() {
     classRoster.printInvalidEmails();
     cout << endl;
     std::cout << "------------------------------" << std:: endl;
-
+    
     cout << "Showing average days in course for each student: " << endl;
+    for (const std::string& student : studentData) {
+        long position = student.find(',');
+        std::string id = student.substr(0, position);
+        classRoster.printAverageDaysInCourse(id);
+    }
     classRoster.printAverageDaysInCourse("");
     cout << endl;
     std::cout << "------------------------------" << std:: endl;

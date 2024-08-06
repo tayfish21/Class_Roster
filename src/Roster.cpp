@@ -63,18 +63,7 @@ void Roster::parse(string studentData) {
 void Roster::printAll() {
 	for (int i = 0; i <= Roster::lastIndex; i++)
 	{
-		cout << numOfStudentsArray[i]->getStudentId() << '\t';
-		cout << numOfStudentsArray[i]->getFirstName() << '\t';
-		cout << numOfStudentsArray[i]->getLastName() << '\t';
-		cout << numOfStudentsArray[i]->getEmailAddress() << '\t';
-		cout << numOfStudentsArray[i]->getAge()<< '\t';
-		cout << numOfStudentsArray[i]->getEmailAddress()<< '\t';
-		cout << numOfStudentsArray[i]->getDaysInCourse()[0] << '\t';
-		cout << numOfStudentsArray[i]->getDaysInCourse()[1] << '\t';
-		cout << numOfStudentsArray[i]->getDaysInCourse()[2] << '\t';
-		cout << degreeTypeStrings[numOfStudentsArray[i]->getDegree()] << std::endl;
-
-
+        numOfStudentsArray[i]->print();
 	}
 }
 //showing by certain degree match
@@ -108,8 +97,11 @@ void Roster::printInvalidEmails() {
 void Roster::printAverageDaysInCourse(string studentId) {
 
 	for (int i = 0; i<=lastIndex; i++) {
-		cout << numOfStudentsArray[i]->getStudentId() << ": ";
-		cout << (numOfStudentsArray[i]->getDaysInCourse()[0]) + numOfStudentsArray[i]->getDaysInCourse()[1] + numOfStudentsArray[i]->getDaysInCourse()[2] / 3.0 << std::endl;
+        if (numOfStudentsArray[i]->getStudentId() == studentId) {
+            const int* days = numOfStudentsArray[i]->getDaysInCourse();
+            double average = (days[0] + days[1] + days [2]) / 3.0;
+            cout << studentId << ":" << average << std::endl;
+        }
 	}
 	cout << std::endl;
 }
